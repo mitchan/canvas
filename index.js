@@ -6,7 +6,22 @@ class Circle {
     this.x = x;
     this.y = y;
     this.radius = radius;
+    this.dx = 0;
+    this.dy = 3;
   }
+}
+
+Circle.prototype.update = function () {
+  this.x += this.dx;
+  this.y += this.dy;
+
+  // revert dy ?
+  if (this.y + this.radius >= canvas.height || this.y - this.radius <= 0) {
+    // revert
+    this.dy = -this.dy;
+  }
+
+  this.draw();
 }
 
 Circle.prototype.draw = function () {
@@ -29,8 +44,8 @@ function update() {
   // clear canvas
   ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-  // draw a circle
-  circle.draw();
+  // update circle
+  circle.update();
 }
 
 function resize() {
