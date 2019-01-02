@@ -1,10 +1,3 @@
-const canvas = document.querySelector('canvas')
-const ctx = canvas.getContext('2d')
-
-function randomIntBetweenTwoNumbers(min, max) {
-  return Math.floor(Math.random() * (max - min + 1) + min)
-}
-
 class Circle {
   constructor(x, y, radius) {
     this.x = x
@@ -64,9 +57,4 @@ function update() {
 
   // update circles
   circles.forEach(circle => circle.update())
-}
-
-function resize() {
-  canvas.width = window.innerWidth
-  canvas.height = window.innerHeight
 }
